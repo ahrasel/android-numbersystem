@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@drawable/textlinebotton">
 
+    <TextView
+        android:id="@+id/ascii_COde_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        style="@style/asciicodeTvStyle"/>
+
+    <TextView
+        android:id="@+id/decimal_value_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        style="@style/asciicodeTvStyle" />
+
+    <TextView
+        android:id="@+id/charecter_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        style="@style/asciicodeTvStyle"/>
 </LinearLayout>
