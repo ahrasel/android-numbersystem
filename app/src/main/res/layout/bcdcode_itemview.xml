@@ -3,4 +3,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+    android:id="@+id/bcd_decimal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+        android:text="0000"
+    style="@style/asciicodeTvStyle"/>
+
+    <TextView
+        android:id="@+id/bcd_8421"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0000"
+        style="@style/asciicodeTvStyle"/>
+
+    <TextView
+        android:id="@+id/bcd_7421"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0000"
+        style="@style/asciicodeTvStyle" />
+
+    <TextView
+        android:id="@+id/bcd_5421"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0000"
+        style="@style/asciicodeTvStyle"/>
+
+    <TextView
+        android:id="@+id/bcd_2421"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0000"
+        style="@style/asciicodeTvStyle"/>
+
+    <TextView
+        android:id="@+id/bcd_642-3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0000"
+        style="@style/asciicodeTvStyle" />
+
+
+
 </LinearLayout>
