@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.RecyclerViewFM">
+    tools:context=".Fragments.RecyclerViewFM"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bcd_header_holder_layout"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/ascii_COde_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ASCII CODE"
+            style="@style/asciicodeTvStyle"/>
+
+        <TextView
+            android:id="@+id/decimal_value_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="DECIMAL"
+            style="@style/asciicodeTvStyle" />
+
+        <TextView
+            android:id="@+id/charecter_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CHARACTER"
+            style="@style/asciicodeTvStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ascii_header_holder_layout"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/bcd_decimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Decimal"
+            style="@style/asciicodeTvStyle"/>
+
+        <TextView
+            android:id="@+id/bcd_8421"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="8421"
+            style="@style/asciicodeTvStyle"/>
+
+        <TextView
+            android:id="@+id/bcd_7421"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="7421"
+            style="@style/asciicodeTvStyle" />
+
+        <TextView
+            android:id="@+id/bcd_5421"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5421"
+            style="@style/asciicodeTvStyle"/>
+
+        <TextView
+            android:id="@+id/bcd_2421"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2421"
+            style="@style/asciicodeTvStyle"/>
+
+        <TextView
+            android:id="@+id/bcd_642-3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="642-3"
+            style="@style/asciicodeTvStyle" />
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/recyclerView"/>
 
-</FrameLayout>
+</LinearLayout>
