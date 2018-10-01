@@ -23,14 +23,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -80,19 +72,16 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_convert_number) {
-            // Handle the camera action
-        } else if (id == R.id.nav_Number_calculation) {
-
-        } else if (id == R.id.nav_all_ascii_code) {
-
-        } else if (id == R.id.nav_bcd_code) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_rateus) {
-
+        switch (id){
+            case R.id.nav_convert_number: break;
+            case R.id.nav_Number_calculation: break;
+            case R.id.nav_all_ascii_code: break;
+            case R.id.nav_bcd_code: break;
+            case R.id.nav_share: break;
+            case R.id.nav_rateus: break;
+            default: break;
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
