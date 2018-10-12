@@ -186,9 +186,10 @@
                 <ImageButton
                     android:id="@+id/deleteButton"
                     style="@style/button_Style"
-                    android:src="@mipmap/ic_launcher"
                     android:layout_width="103dp"
-                    android:layout_height="40dp"/>
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_clear_black"
+                    android:tint="#fff" />
 
 
             </LinearLayout>
