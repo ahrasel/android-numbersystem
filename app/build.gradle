@@ -31,6 +31,6 @@ dependencies {
     //Butternife Library
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation 'gr.pantrif:easy-android-splash-screen:0.0.1'
+
 
 }
