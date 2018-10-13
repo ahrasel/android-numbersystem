@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
     private Toolbar toolbar;
     private boolean isHomeFragment;
     private static final String ASCII_TITLE = "ASCII COdes";
-    private static final String BCD_TITLE = "BCD COdes";
+    private static final String BCD_TITLE = "BCD Codes";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        changeFragment("Convert Number", new ConvertNumberFM());
+        toolbar.setTitle(R.string.convertnumbertitle);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fragment_Container,new ConvertNumberFM());
+        //transaction.addToBackStack(null);
+        transaction.commit();
+
         //Intilize Google Admob Add
         intilizeAdmobAd();
 
