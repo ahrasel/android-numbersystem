@@ -16,9 +16,22 @@
             android:id="@+id/number_Option_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="2dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/inputTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/border"
+            android:paddingLeft="5dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
