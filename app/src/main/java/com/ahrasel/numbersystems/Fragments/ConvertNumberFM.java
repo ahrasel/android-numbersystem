@@ -14,6 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.ahrasel.numbersystems.Models.Base.BaseConverter;
+import com.ahrasel.numbersystems.Models.Base.Binary;
+import com.ahrasel.numbersystems.Models.Base.Decimal;
+import com.ahrasel.numbersystems.Models.Base.HexaDecimal;
+import com.ahrasel.numbersystems.Models.Base.Octal;
 import com.ahrasel.numbersystems.R;
 
 import java.util.ArrayList;
@@ -54,6 +59,7 @@ public class ConvertNumberFM extends Fragment {
     @BindView(R.id._F) Button _F;
 
     private Context contex;
+    private BaseConverter baseConverter;
 
     public ConvertNumberFM() {
         // Required empty public constructor
@@ -71,6 +77,7 @@ public class ConvertNumberFM extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_convert_number_fm, container, false);
         ButterKnife.bind(this,view);
+        createObjectinstance();
 
         loadSpinner();
 
@@ -91,6 +98,10 @@ public class ConvertNumberFM extends Fragment {
         return view;
     }
 
+    private void createObjectinstance() {
+
+    }
+
     private void changeButtonVisibility(int position) {
         resetAllButtonview();
         if (position == 0){ //Decimal
@@ -103,7 +114,7 @@ public class ConvertNumberFM extends Fragment {
             _F.setClickable(false);
         }
         if (position == 1){ //Binary
-            _complementOutputContainer.setVisibility(View.VISIBLE);
+            _complementOutputContainer.setVisibility(View.GONE);
             _2.setClickable(false);
             _3.setClickable(false);
             _4.setClickable(false);
@@ -174,7 +185,7 @@ public class ConvertNumberFM extends Fragment {
     })
     public void onClearAndDeleteButtonClick(View view){
         switch (view.getId()){
-            case R.id.clearButton: _inputTV.setText("");break;
+            case R.id.clearButton: clearAllTextview(); break;
             case R.id.deleteButton: deleteButton(); break;
             default: break;
         }
@@ -185,6 +196,7 @@ public class ConvertNumberFM extends Fragment {
         if (val.length()>0 && !val.isEmpty()){
             val = val.substring(0,val.length()-1);
             _inputTV.setText(val);
+            showOutput();
         }
         else {
             clearAllTextview();
@@ -242,6 +254,33 @@ public class ConvertNumberFM extends Fragment {
         }
 
         _inputTV.setText(val);
+        showOutput();
+    }
+
+    private void showOutput() {
+        String number = _inputTV.getText().toString();
+        if (number.isEmpty()){
+            return;
+        }
+        int base = _numberOptionSpinner.getSelectedItemPosition();
+
+        if (base == 0){
+         baseConverter = new Decimal();
+        }
+        if (base == 1){
+            baseConverter = new Binary();
+        }
+        if (base == 2){
+            baseConverter = new Octal();
+        }
+        if (base == 3){
+            baseConverter = new HexaDecimal();
+        }
+        _decimalTV.setText(baseConverter.toDecimal(number));
+        _binaryTV.setText(baseConverter.toBinary(number));
+        _octalTV.setText(baseConverter.toOctal(number));
+        _hexaTV.setText(baseConverter.toHexaDecimal(number));
+
     }
 
 }
