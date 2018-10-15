@@ -12,16 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.ahrasel.numbersystems.Models.Base.BaseConverter;
 import com.ahrasel.numbersystems.Models.Base.Binary;
 import com.ahrasel.numbersystems.Models.Base.Decimal;
 import com.ahrasel.numbersystems.Models.Base.HexaDecimal;
 import com.ahrasel.numbersystems.Models.Base.Octal;
 import com.ahrasel.numbersystems.R;
-
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
