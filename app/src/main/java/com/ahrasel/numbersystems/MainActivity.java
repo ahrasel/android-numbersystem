@@ -17,17 +17,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.ahrasel.numbersystems.Fragments.AsciiCodesFM;
+import com.ahrasel.numbersystems.Fragments.BcdCodesFM;
 import com.ahrasel.numbersystems.Fragments.ConvertNumberFM;
 import com.ahrasel.numbersystems.Fragments.NumberCalculatioFM;
 import com.ahrasel.numbersystems.Fragments.RecyclerViewFM;
+import com.ahrasel.numbersystems.Models.RecyclerLayoutController;
 import com.google.android.gms.ads.AdView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, RecyclerLayoutController {
 
+    private  int NavigationviewId;
     @BindView(R.id.adView) AdView _adView;
     @BindView(R.id.fragment_Container) FrameLayout _fragmentContainer;
     private Toolbar toolbar;
@@ -114,8 +118,12 @@ public class MainActivity extends AppCompatActivity
         switch (id){
             case R.id.nav_convert_number: changeFragment("Convert Number", new ConvertNumberFM());break;
             case R.id.nav_Number_calculation: changeFragment("Calculate Number", new NumberCalculatioFM()); break;
-            case R.id.nav_all_ascii_code: changeFragment(ASCII_TITLE, new RecyclerViewFM()); break;
-            case R.id.nav_bcd_code:  changeFragment(BCD_TITLE, new RecyclerViewFM()); break;
+            case R.id.nav_all_ascii_code:
+                this.NavigationviewId = id;
+                changeFragment(ASCII_TITLE, new AsciiCodesFM()); break;
+            case R.id.nav_bcd_code:
+                this.NavigationviewId = id;
+                changeFragment(BCD_TITLE, new BcdCodesFM()); break;
             case R.id.nav_share: showShareAction(); break;
             case R.id.nav_rateus: showRateApplication(); break;
             default: break;
@@ -163,5 +171,10 @@ public class MainActivity extends AppCompatActivity
         //transaction.addToBackStack(null);
         transaction.commit();
 
+    }
+
+    @Override
+    public int getNavigationViewId() {
+        return this.NavigationviewId;
     }
 }

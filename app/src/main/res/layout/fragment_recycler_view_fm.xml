@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bcd_header_holder_layout"
+        android:id="@+id/ascii_header_holder_layout"
         android:visibility="gone">
         <TextView
             android:id="@+id/ascii_COde_textView"
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="DECIMAL"
-            style="@style/asciicodeTvStyle" />
+            style="@style/asciicodeTvStyle"/>
 
         <TextView
             android:id="@+id/charecter_textView"
@@ -39,7 +39,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ascii_header_holder_layout"
+        android:id="@+id/bcd_header_holder_layout"
         android:visibility="gone">
 
         <TextView
