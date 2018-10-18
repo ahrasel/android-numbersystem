@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,27 +17,58 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
+
 import com.ahrasel.numbersystems.Fragments.AsciiCodesFM;
 import com.ahrasel.numbersystems.Fragments.BcdCodesFM;
 import com.ahrasel.numbersystems.Fragments.ConvertNumberFM;
 import com.ahrasel.numbersystems.Fragments.NumberCalculatioFM;
 import com.ahrasel.numbersystems.Models.RecyclerLayoutController;
+import com.ahrasel.numbersystems.Prefs.AddControllPrefs;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, RecyclerLayoutController {
 
+    private static final String ADMOB_APP_ID = "ca-app-pub-3940256099942544~3347511713";
+    private static final String ADMOB_INTERESTIAL_CODE = "ca-app-pub-3940256099942544/1033173712";
     private  int NavigationviewId;
-    @BindView(R.id.adView) AdView _adView;
-    @BindView(R.id.fragment_Container) FrameLayout _fragmentContainer;
     private Toolbar toolbar;
     private boolean isHomeFragment;
     private static final String ASCII_TITLE = "ASCII Codes";
     private static final String BCD_TITLE = "BCD Codes";
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
+    private AddControllPrefs prefs;
+    private static final long GAME_LENGTH_MILLISECONDS = 1000*60*1;
+    private CountDownTimer countDownTimer;
+    private long timerMillisecond;
+
+    @Override
+    protected void onPause() {
+        countDownTimer.cancel();
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+       // prefs.setFirstRun(false);
+        //finish();
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        prefs.setFirstRun(false);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +77,9 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //create Instence And Obj
+        createObj();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -67,7 +102,69 @@ public class MainActivity extends AppCompatActivity
         intilizeAdmobAd();
         //Intilize Baner Add
         initilizeBanerAdd();
+        //Interestial Add
+        showInterestialAd();
 
+        mInterstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                loadInterestilaAdd();
+                countDownTimer.start();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                loadInterestilaAdd();
+                super.onAdFailedToLoad(i);
+            }
+        });
+
+        //create timer
+        createTimer(GAME_LENGTH_MILLISECONDS);
+
+    }
+
+    private void createObj() {
+        prefs = new AddControllPrefs(this);
+    }
+
+    private void createTimer(final long milliseconds) {
+        // Create the game timer, which counts down to the end of the level
+        // and shows the "retry" button.
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+
+        countDownTimer = new CountDownTimer(milliseconds, 50) {
+            @Override
+            public void onTick(long millisUnitFinished) {
+                timerMillisecond = millisUnitFinished;
+//                Toast.makeText(MainActivity.this, "seconds remaining: " + (millisUnitFinished / 1000) + 1,
+//                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFinish() {
+                if (mInterstitialAd.isLoaded()){
+                    mInterstitialAd.show();
+                }
+                //Toast.makeText(MainActivity.this, "Done", Toast.LENGTH_SHORT).show();
+            }
+        };
+    }
+
+    private void showInterestialAd() {
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(ADMOB_INTERESTIAL_CODE);
+        loadInterestilaAdd();
+    }
+
+    private void loadInterestilaAdd() {
+        mInterstitialAd.loadAd(new AdRequest
+                .Builder()
+                .addTestDevice("ABA9235A80AA27B927851A9936184A80")
+                .build());
     }
 
     private void initilizeBanerAdd() {
@@ -80,7 +177,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void intilizeAdmobAd() {
-
+        MobileAds.initialize(this, ADMOB_APP_ID);
     }
 
     @Override
@@ -174,6 +271,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void changeFragment(String tolbarTitle, Fragment fragment) {
+        if (mInterstitialAd.isLoaded() && !prefs.isFirstRun()){
+            mInterstitialAd.show();
+            prefs.setFirstRun(true);
+        }
         toolbar.setTitle(tolbarTitle);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
