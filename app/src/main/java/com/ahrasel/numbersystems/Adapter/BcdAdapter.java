@@ -29,7 +29,7 @@ public class BcdAdapter extends RecyclerView.Adapter<BcdAdapter.BcdViewHolder> {
     @NonNull
     @Override
     public BcdViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.id.bcdcode_itemview,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.bcdcode_itemview,parent,false);
         return new BcdViewHolder(view);
     }
 
