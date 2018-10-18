@@ -8,13 +8,17 @@ public class BcdCode {
     private String bcd_2421;
     private String bcd_6421_3;
 
-    public BcdCode(String bcdDecimal, String bcd_8421, String bcd_7421, String bcd_5421, String bcd_2421, String bcd_6421_3) {
+    public BcdCode(String bcdDecimal, String bcd_8421, String bcd_7421, String bcd_5421,
+                   String bcd_2421, String bcd_6421_3) {
         this.bcdDecimal = bcdDecimal;
         this.bcd_8421 = bcd_8421;
         this.bcd_7421 = bcd_7421;
         this.bcd_5421 = bcd_5421;
         this.bcd_2421 = bcd_2421;
         this.bcd_6421_3 = bcd_6421_3;
+    }
+
+    public BcdCode() {
     }
 
     public String getBcdDecimal() {
@@ -64,4 +68,5 @@ public class BcdCode {
     public void setBcd_6421_3(String bcd_6421_3) {
         this.bcd_6421_3 = bcd_6421_3;
     }
+
 }

@@ -11,6 +11,9 @@ public class AsciiCode {
         this.charecter = charecter;
     }
 
+    public AsciiCode() {
+    }
+
     public String getAsciiCode() {
         return asciiCode;
     }
