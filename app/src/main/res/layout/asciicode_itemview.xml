@@ -6,22 +6,22 @@
 
     <TextView
         android:id="@+id/ascii_COde_textView"
-        android:layout_width="wrap_content"
+        style="@style/asciicodeTvStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        style="@style/asciicodeTvStyle"/>
+        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/decimal_value_textView"
-        android:layout_width="wrap_content"
+        style="@style/asciicodeTvStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        style="@style/asciicodeTvStyle" />
+        android:layout_weight="1" />
 
     <TextView
         android:id="@+id/charecter_textView"
-        android:layout_width="wrap_content"
+        style="@style/asciicodeTvStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        style="@style/asciicodeTvStyle"/>
+        android:layout_weight="1" />
 </LinearLayout>

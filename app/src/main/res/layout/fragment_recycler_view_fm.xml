@@ -10,85 +10,86 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ascii_header_holder_layout"
-        android:visibility="gone">
+        android:visibility="visible">
+
         <TextView
             android:id="@+id/ascii_COde_textView"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ASCII CODE"
-            style="@style/asciicodeTvStyle"/>
+            android:text="ASCII CODE" />
 
         <TextView
             android:id="@+id/decimal_value_textView"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="DECIMAL"
-            style="@style/asciicodeTvStyle"/>
+            android:text="DECIMAL" />
 
         <TextView
             android:id="@+id/charecter_textView"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CHARACTER"
-            style="@style/asciicodeTvStyle"/>
+            android:text="CHARACTER" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bcd_header_holder_layout"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/bcd_decimal"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Decimal"
-            style="@style/asciicodeTvStyle"/>
+            android:text="Dec." />
 
         <TextView
             android:id="@+id/bcd_8421"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="8421"
-            style="@style/asciicodeTvStyle"/>
+            android:text="8421" />
 
         <TextView
             android:id="@+id/bcd_7421"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="7421"
-            style="@style/asciicodeTvStyle" />
+            android:text="7421" />
 
         <TextView
             android:id="@+id/bcd_5421"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="5421"
-            style="@style/asciicodeTvStyle"/>
+            android:text="5421" />
 
         <TextView
             android:id="@+id/bcd_2421"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="2421"
-            style="@style/asciicodeTvStyle"/>
+            android:text="2421" />
 
         <TextView
             android:id="@+id/bcd_642-3"
-            android:layout_width="wrap_content"
+            style="@style/asciicodeTvStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="642-3"
-            style="@style/asciicodeTvStyle" />
+            android:text="642-3" />
 
 
     </LinearLayout>
