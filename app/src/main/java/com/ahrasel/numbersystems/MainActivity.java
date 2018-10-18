@@ -16,15 +16,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-
 import com.ahrasel.numbersystems.Fragments.AsciiCodesFM;
 import com.ahrasel.numbersystems.Fragments.BcdCodesFM;
 import com.ahrasel.numbersystems.Fragments.ConvertNumberFM;
 import com.ahrasel.numbersystems.Fragments.NumberCalculatioFM;
-import com.ahrasel.numbersystems.Fragments.RecyclerViewFM;
 import com.ahrasel.numbersystems.Models.RecyclerLayoutController;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -38,6 +36,7 @@ public class MainActivity extends AppCompatActivity
     private boolean isHomeFragment;
     private static final String ASCII_TITLE = "ASCII COdes";
     private static final String BCD_TITLE = "BCD Codes";
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +65,18 @@ public class MainActivity extends AppCompatActivity
 
         //Intilize Google Admob Add
         intilizeAdmobAd();
+        //Intilize Baner Add
+        initilizeBanerAdd();
 
+    }
+
+    private void initilizeBanerAdd() {
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest
+                .Builder()
+                .addTestDevice("ABA9235A80AA27B927851A9936184A80")
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     private void intilizeAdmobAd() {
