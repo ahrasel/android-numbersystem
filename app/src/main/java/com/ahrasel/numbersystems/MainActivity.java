@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.fragment_Container) FrameLayout _fragmentContainer;
     private Toolbar toolbar;
     private boolean isHomeFragment;
-    private static final String ASCII_TITLE = "ASCII COdes";
+    private static final String ASCII_TITLE = "ASCII Codes";
     private static final String BCD_TITLE = "BCD Codes";
     private AdView mAdView;
 
