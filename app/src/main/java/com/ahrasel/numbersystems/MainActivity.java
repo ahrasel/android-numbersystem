@@ -37,8 +37,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, RecyclerLayoutController {
 
-    private static final String ADMOB_APP_ID = "ca-app-pub-3940256099942544~3347511713";
-    private static final String ADMOB_INTERESTIAL_CODE = "ca-app-pub-3940256099942544/1033173712";
+    private static final String ADMOB_APP_ID = "ca-app-pub-7674076163572757~5657248764";
+    private static final String ADMOB_INTERESTIAL_CODE = "ca-app-pub-7674076163572757/7009858887";
     private  int NavigationviewId;
     private Toolbar toolbar;
     private boolean isHomeFragment;
@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
     private AddControllPrefs prefs;
-    private static final long GAME_LENGTH_MILLISECONDS = 1000*60*1;
+    private static final long GAME_LENGTH_MILLISECONDS = 1000*60*5;
     private CountDownTimer countDownTimer;
     private long timerMillisecond;
 
     @Override
     protected void onPause() {
-        countDownTimer.cancel();
+        //countDownTimer.cancel();
         super.onPause();
     }
 
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity
 
         //create Instence And Obj
         createObj();
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -123,6 +122,10 @@ public class MainActivity extends AppCompatActivity
         //create timer
         createTimer(GAME_LENGTH_MILLISECONDS);
 
+        if (prefs.isFirstRun()){
+            countDownTimer.start();
+        }
+
     }
 
     private void createObj() {
@@ -146,9 +149,10 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onFinish() {
-                if (mInterstitialAd.isLoaded()){
-                    mInterstitialAd.show();
-                }
+//                if (mInterstitialAd.isLoaded()){
+//                    mInterstitialAd.show();
+//                }
+                prefs.setFirstRun(false);
                 //Toast.makeText(MainActivity.this, "Done", Toast.LENGTH_SHORT).show();
             }
         };
@@ -163,7 +167,7 @@ public class MainActivity extends AppCompatActivity
     private void loadInterestilaAdd() {
         mInterstitialAd.loadAd(new AdRequest
                 .Builder()
-                .addTestDevice("ABA9235A80AA27B927851A9936184A80")
+                //.addTestDevice("ABA9235A80AA27B927851A9936184A80")
                 .build());
     }
 
@@ -171,7 +175,7 @@ public class MainActivity extends AppCompatActivity
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest
                 .Builder()
-                .addTestDevice("ABA9235A80AA27B927851A9936184A80")
+                //.addTestDevice("ABA9235A80AA27B927851A9936184A80")
                 .build();
         mAdView.loadAd(adRequest);
     }
