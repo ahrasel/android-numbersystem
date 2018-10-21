@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "679391839280",
+    "firebase_url": "https://numbersystems-a165c.firebaseio.com",
+    "project_id": "numbersystems-a165c",
+    "storage_bucket": "numbersystems-a165c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679391839280:android:b4ecf57d2f9a952a",
+        "android_client_info": {
+          "package_name": "com.ahrasel.numbersystems"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679391839280-9s7ghne2rs30g6t9os6i8p8vce95qb4n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahrasel.numbersystems",
+            "certificate_hash": "641fc2edf5aad57f543cff97d06bb88ad346fa61"
+          }
+        },
+        {
+          "client_id": "679391839280-533agnjalej416nmvl9h5tqqms7riugv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWJGvPNk30JLQIAUPhbZ-calPQy7GvCpc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679391839280-533agnjalej416nmvl9h5tqqms7riugv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

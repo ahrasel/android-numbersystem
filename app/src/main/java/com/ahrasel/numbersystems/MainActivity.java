@@ -31,6 +31,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity
     private static final long GAME_LENGTH_MILLISECONDS = 1000*60*5;
     private CountDownTimer countDownTimer;
     private long timerMillisecond;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onPause() {
@@ -100,6 +102,8 @@ public class MainActivity extends AppCompatActivity
         //transaction.addToBackStack(null);
         transaction.commit();
 
+        //firebase events
+        firebaseWork(savedInstanceState);
         //Intilize Google Admob Add
         intilizeAdmobAd();
         //Intilize Baner Add
@@ -129,6 +133,11 @@ public class MainActivity extends AppCompatActivity
             countDownTimer.start();
         }
 
+    }
+
+    private void firebaseWork(Bundle bundle) {
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     private void createObj() {
@@ -170,7 +179,7 @@ public class MainActivity extends AppCompatActivity
     private void loadInterestilaAdd() {
         mInterstitialAd.loadAd(new AdRequest
                 .Builder()
-                //.addTestDevice("ABA9235A80AA27B927851A9936184A80")
+                .addTestDevice("ABA9235A80AA27B927851A9936184A80")
                 .build());
     }
 
@@ -178,7 +187,7 @@ public class MainActivity extends AppCompatActivity
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest
                 .Builder()
-                //.addTestDevice("ABA9235A80AA27B927851A9936184A80")
+                .addTestDevice("ABA9235A80AA27B927851A9936184A80")
                 .build();
         mAdView.loadAd(adRequest);
     }
