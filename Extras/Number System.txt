@@ -1,5 +1,0 @@
-ca-app-pub-7674076163572757~5657248764  --App id
-ca-app-pub-7674076163572757/8843892720  --Banner
-ca-app-pub-7674076163572757/7009858887  --Interstital
-
-This is vary powerfull number base converter calculator. convert any base to other base. Calculation any base number. Also all ascii code and BCD are Available.
